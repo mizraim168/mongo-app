@@ -11,3 +11,5 @@ exec("mongodump -d sample_airbnb -o/backup", (error, stdout, stderr) => {
     }
     console.log(`stdout: ${stdout}`);
 });
+
+// https://gist.github.com/Villanuevand/6386899f70346d4580c723232524d35a

@@ -3,20 +3,26 @@ const l = require('../models/ListingsAndReviews');
 const { exec } = require("child_process");
 const customersController = {};
 
-// Join two colections from sample_airbnb 
-// const acollection = l.collection.collectionName;
-//     const type = typeof acollection
-//     console.log(' entro aqui ' + acollection + ' y es de tipo ' + type);
-//     const cus = await customer.aggregate([
-//         {
-//             $lookup: {
-//               from: acollection,
-//               localField: '_id',
-//               foreignField:'id_customer',
-//               as:'Rentals'
-//             }
-//         }
-//     ])
+
+
+customersController.getCustomersRentals = async (req, res) =>{
+    // Join two colections from sample_airbnb 
+const acollection = l.collection.collectionName;
+    const type = typeof acollection
+    console.log(' entro aqui ' + acollection + ' y es de tipo ' + type);
+    const cus = await customer.aggregate([
+        {
+            $lookup: {
+              from: acollection,
+              localField: '_id',
+              foreignField:'id_customer',
+              as:'Rentals'
+            }
+        }
+    ])
+    res.json(cus);
+ 
+ } 
 
 // /GET all customers
 
@@ -25,6 +31,7 @@ customersController.getCustomers = async (req, res) =>{
    res.json(customers);
 
 } 
+
 // /GET only one customer
 customersController.getCustomer = async (req , res) =>{
     
