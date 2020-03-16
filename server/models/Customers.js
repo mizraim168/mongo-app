@@ -15,7 +15,7 @@ const customers = new Schema({
     district: {type: String, required:true},
     FirstName: {type: String, required:true},
     LastName: {type: String, required:true},
-    status: {type: Boolean, required:true}
+    status: {type: String, required:false}
 });
 
 

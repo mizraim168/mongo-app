@@ -3,28 +3,26 @@ const l = require('../models/ListingsAndReviews');
 
 const customersController = {};
 
-
+// Join two colections from sample_airbnb 
+// const acollection = l.collection.collectionName;
+//     const type = typeof acollection
+//     console.log(' entro aqui ' + acollection + ' y es de tipo ' + type);
+//     const cus = await customer.aggregate([
+//         {
+//             $lookup: {
+//               from: acollection,
+//               localField: '_id',
+//               foreignField:'id_customer',
+//               as:'Rentals'
+//             }
+//         }
+//     ])
 
 // /GET all customers
 
 customersController.getCustomers = async (req, res) =>{
-    // join two colections 
-    const acollection = l.collection.collectionName;
-    const type = typeof acollection
-    console.log(' entro aqui ' + acollection + ' y es de tipo ' + type);
-    const cus = await customer.aggregate([
-        {
-            $lookup: {
-              from: acollection,
-              localField: '_id',
-              foreignField:'id_customer',
-              as:'Rentals'
-            }
-        }
-    ])
-
-//    const customers =  await customer.find({});
-   res.json(cus);
+   const customers =  await customer.find({});
+   res.json(customers);
 
 } 
 // /GET only one customer
@@ -69,7 +67,7 @@ customersController.createCustomer = async (req, res) => {
         status: "Customer saved"
     });
 }
-// /PUT update user
+// /PUT update customer
 customersController.editCustomer = async (req, res) =>{
     const {id} = req.params;
     const oneCustomer = {
@@ -87,7 +85,7 @@ customersController.editCustomer = async (req, res) =>{
     })
 }
 
-// /DELETE user
+// /DELETE customer
 customersController.deleteCustomer = async (req, res) =>{
     await customer.findByIdAndRemove(req.params.id);
     res.json({

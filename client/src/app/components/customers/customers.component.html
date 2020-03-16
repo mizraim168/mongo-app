@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+       
+            <div class="card">
+                <div class="card-content">
+                    <!-- <form #userForm ="ngForm" (ngSubmit)="addUser(userForm)"> -->
+                    <form #customerForm ="ngForm">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]= "customersService.selectedCustomer._id">
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="address" #address="ngModel" [(ngModel)]="customersService.selectedCustomer.address" placeholder="put your address" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="city" #city="ngModel" [(ngModel)]="customersService.selectedCustomer.city" placeholder="put your city" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="country" #country="ngModel" [(ngModel)]="customersService.selectedCustomer.country" placeholder="put your country" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="district" #district="ngModel" [(ngModel)]="customersService.selectedCustomer.district" placeholder="put your district" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="customersService.selectedCustomer.FirstName" placeholder="put your FirstName" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="customersService.selectedCustomer.LastName" placeholder="put your LastName" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <select  name="status" #status="ngModel" [(ngModel)]="customersService.selectedCustomer.status">
+                                  <option value="" disabled selected>Choose your status</option>
+                                  <option value="active">Active</option>
+                                  <option value="inactive">Inactive</option>
+                                </select>
+                                <label>Choose status</label>
+                            </div>
+                        </div>
+ 
+                        <div class="card-action">
+                            <div class="input-field">
+                                <button class="btn right" (click)="addCustomer(customerForm)">Save Customer</button>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+     
+
+        <div class="row">
+            <table>
+                <thead>
+                    <th>address</th>
+                    <th>city</th>
+                    <th>country</th>
+                    <th>district</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>status</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customersService.customers">
+                        <td>{{customer.address}}</td>
+                        <td>{{customer.city}}</td>
+                        <td>{{customer.country}}</td>
+                        <td>{{customer.district}}</td>
+                        <td>{{customer.FirstName}}</td>
+                        <td>{{customer.LastName}}</td>
+                        <td>{{customer.status}}</td>
+                        <td>
+                            <a (click)="editCustomer(customer)" >
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="deleteCustomer(customer._id)" >
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
