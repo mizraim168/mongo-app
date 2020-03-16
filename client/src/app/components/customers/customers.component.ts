@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/customer';
 import { CustomersService } from '../../services/customers.service';
 import { NgForm } from '@angular/forms';
+
 declare let M: any;
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
@@ -14,12 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
   providers: [CustomersService]
 })
 export class CustomersComponent implements OnInit {
- 
+  searchText; 
   constructor(public customersService: CustomersService) { }
-
+  
   ngOnInit(): void {
     this.getCustomers();
   }
+
 
   addCustomer(form: NgForm){
     if (form.value._id) {
@@ -50,6 +52,16 @@ export class CustomersComponent implements OnInit {
       
     })
   }
+
+
+
+  getCustomer(_id: string){
+    this.customersService.getCustomer(_id)
+    .subscribe(res =>{
+      this.customersService.customer = res as Customer[];
+      console.log(res);
+    })
+  }
   editCustomer(user : Customer){
     this.customersService.selectedCustomer = user;
     // this.userService.putUser()
@@ -67,6 +79,7 @@ export class CustomersComponent implements OnInit {
     }
 
   }
+
 
   //clean form after submit
   resetForm(form?: NgForm){

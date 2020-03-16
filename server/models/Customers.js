@@ -8,14 +8,14 @@ const  Schema  = mongoose.Schema;
 
 const customers = new Schema({
     
-    // _id: { type: Number},
+    // _id: { type: String},
     address: {type: String, required:true},
     city: {type: String, required:true},
     country: {type: String, required:true},
     district: {type: String, required:true},
     FirstName: {type: String, required:true},
     LastName: {type: String, required:true},
-    status: {type: String, required:false}
+    status: {type: String, required:true}
 });
 
 

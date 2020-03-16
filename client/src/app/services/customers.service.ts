@@ -7,6 +7,7 @@ import { Customer } from '../models/customer';
 export class CustomersService {
   selectedCustomer: Customer;
   customers: Customer[];
+  customer: Customer[];
 
   readonly URL_API = 'http://localhost:3000/customers';
 
@@ -20,6 +21,11 @@ export class CustomersService {
     return this.http.get(this.URL_API);
     
   }
+
+  getCustomer(_id: string){
+    return this.http.get(this.URL_API + `/${_id}`)
+  }
+
   postCustomer(Customer: Customer){
     return this.http.post(this.URL_API, Customer);
   }
@@ -30,5 +36,6 @@ export class CustomersService {
   deleteCustomer(_id: string){
     return this.http.delete(this.URL_API + `/${_id}`);
   }
+
 
 }

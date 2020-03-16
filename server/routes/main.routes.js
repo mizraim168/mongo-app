@@ -8,4 +8,5 @@ const customersController = require('../controllers/Customers.controller');
     router.get('/:id', customersController.getCustomer);
     router.put('/:id', customersController.editCustomer);
     router.delete('/:id', customersController.deleteCustomer);
+    
 module.exports = router;

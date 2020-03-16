@@ -85,12 +85,19 @@ customersController.editCustomer = async (req, res) =>{
     })
 }
 
-// /DELETE customer
+// /DELETE customer by ID
 customersController.deleteCustomer = async (req, res) =>{
     await customer.findByIdAndRemove(req.params.id);
     res.json({
         status: "Customer Deleted"
     })
 }
- 
+
+// /DELETE customer by name
+customersController.deleteOneCustomer = async (req, res) =>{
+    await customer.findOneAndRemove(req.params.FirstName);
+    res.json({
+        status: "Customer Deleted"
+    })
+}
 module.exports = customersController;
