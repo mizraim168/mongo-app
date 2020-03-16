@@ -1,1 +1,99 @@
-<p>airbnb works!</p>
+<div class="container">
+    <div class="row">
+       
+            <div class="card">
+                <div class="card-content">
+                    <!-- <form #userForm ="ngForm" (ngSubmit)="addUser(userForm)"> -->
+                    <form #airbnbForm ="ngForm">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]= "airbnbService.selectedAirbnb._id">
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="name" #name="ngModel" [(ngModel)]="airbnbService.selectedAirbnb.name" placeholder="put your name" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="price" #price="ngModel" [(ngModel)]="airbnbService.selectedAirbnb.price" placeholder="put your price" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="property_type" #property_type="ngModel" [(ngModel)]="airbnbService.selectedAirbnb.property_type" placeholder="put your property_type" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="number" name="id_customer" #id_customer="ngModel" [(ngModel)]="airbnbService.selectedAirbnb.id_customer" placeholder="put your id_customer" >
+                            </div>
+                        </div>
+                        
+ 
+                        <div class="card-action">
+                            <div class="input-field">
+                                <button class="btn right" (click)="addCustomer(airbnbForm)">Save Customer</button>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+            <br><br><br>
+        <div >    
+            <h1>Information about customers</h1>
+            <!-- <div>
+                Search data by id or name or country oh.. whatever you want:
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="  Start searching for a customers by id or name or country">
+            </div> -->
+
+            <a class="waves-effect waves-light btn" (click)="createReport()" ><i class="material-icons right">cloud_download</i>Download report</a>
+
+            <div class="row">
+                <table id="report">
+                    <thead>
+                        <th>name</th>
+                        <th>price</th>
+                        <th>property_type</th>
+                        <th>id_customer</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        
+                        <tr *ngFor="let airbnb of airbnbService.airbnb">
+                            <!-- <section *ngIf="airbnb.id_customer > 0"> -->
+                                <td>{{airbnb.name}}</td>
+                                <td>{{airbnb.price}}</td>
+                                <td>{{airbnb.property_type}}</td>
+                                <td>{{airbnb.id_customer}}</td>
+        
+                                <td>
+                                    <a (click)="editCustomer(airbnb)" >
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <a (click)="deleteCustomer(airbnb._id)" >
+                                        <i class="material-icons">delete</i>
+                                    </a>
+
+                                </td>
+                            
+                        </tr>
+                    
+                       
+                    </tbody>
+                </table>
+    
+     
+                
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+

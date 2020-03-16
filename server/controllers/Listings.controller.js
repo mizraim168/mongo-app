@@ -42,4 +42,28 @@ listingsController.createListening = async (req, res) => {
         status: "Customer saved"
     });
 }
+
+
+listingsController.editListening = async (req, res) =>{
+    const {id} = req.params;
+    const oneCustomer = {
+        name: req.body.name,
+        price: req.body.price,
+        property_type: req.body.property_type,
+        id_customer: req.body.id_customer
+
+    };
+    await listings.findByIdAndUpdate(id, {$set: oneCustomer}, {new:true} );
+    res.json({
+        status: "Listening Updated"
+    })
+}
+
+// /DELETE customer by ID
+listingsController.deleteListening = async (req, res) =>{
+    await listings.findByIdAndRemove(req.params.id);
+    res.json({
+        status: "Listening Deleted"
+    })
+}
 module.exports = listingsController;

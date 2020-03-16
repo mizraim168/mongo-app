@@ -15,7 +15,7 @@ import { AirbnbComponent } from './components/airbnb/airbnb.component';
 
 const appRoutes: Routes = [
   { path: '', component: CustomersComponent },
-  { path: 'users',      component: UsersComponent },
+  { path: 'airbnb',      component: AirbnbComponent },
  
 ];
 
