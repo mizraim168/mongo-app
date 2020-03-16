@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { CustomersComponent } from './components/customers/customers.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReviewComponent } from './components/review/review.component';
+import { AirbnbComponent } from './components/airbnb/airbnb.component';
 
 const appRoutes: Routes = [
   { path: '', component: CustomersComponent },
@@ -22,7 +25,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UsersComponent,
-    CustomersComponent
+    CustomersComponent,
+    ReviewsComponent,
+    ReviewComponent,
+    AirbnbComponent
   ],
   imports: [
     RouterModule.forRoot(

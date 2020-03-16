@@ -10,6 +10,7 @@ export class CustomersService {
   customer: Customer[];
 
   readonly URL_API = 'http://localhost:3000/customers';
+  readonly URL_APIE = 'http://localhost:3000/customers/export';
 
   constructor(private http: HttpClient) {
     this.selectedCustomer = new Customer();
@@ -29,6 +30,8 @@ export class CustomersService {
   postCustomer(Customer: Customer){
     return this.http.post(this.URL_API, Customer);
   }
+
+
 
   putCustomer(customer: Customer){
     return this.http.put(this.URL_API + `/${customer._id}`, customer);

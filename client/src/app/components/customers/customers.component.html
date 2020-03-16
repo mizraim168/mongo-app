@@ -79,14 +79,16 @@
                         <th>Actions</th>
                     </thead>
                     <tbody>
+                        
                         <tr *ngFor="let customer of customersService.customers|filter:searchText">
+                            
                             <td>{{customer.address}}</td>
                             <td>{{customer.city}}</td>
                             <td>{{customer.country}}</td>
                             <td>{{customer.district}}</td>
                             <td>{{customer.FirstName}}</td>
                             <td>{{customer.LastName}}</td>
-                            <td>{{customer.status}}</td>
+                            <td >{{customer.status}}</td>
                             <td>
                                 <a (click)="editCustomer(customer)" >
                                     <i class="material-icons">edit</i>
@@ -94,9 +96,12 @@
                                 <a (click)="deleteCustomer(customer._id)" >
                                     <i class="material-icons">delete</i>
                                 </a>
-      
+
                             </td>
+                            
                         </tr>
+                    
+                       
                     </tbody>
                 </table>
     

@@ -1,6 +1,6 @@
 const customer = require('../models/Customers');
 const l = require('../models/ListingsAndReviews');
-
+const { exec } = require("child_process");
 const customersController = {};
 
 // Join two colections from sample_airbnb 
@@ -91,6 +91,20 @@ customersController.deleteCustomer = async (req, res) =>{
     res.json({
         status: "Customer Deleted"
     })
+}
+
+customersController.exportCollections = async () =>{
+    await exec("mongodump -d sample_airbnb -o/backup", (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
 }
 
 // /DELETE customer by name

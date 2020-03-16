@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const autoIncrement = require('mongoose-auto-increment');
-
-
+// export backup
+// mongodump -d sample_airbnb -o/backup
 autoIncrement.initialize(mongoose);
 
 const  Schema  = mongoose.Schema;
