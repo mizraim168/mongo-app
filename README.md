@@ -11,7 +11,14 @@ _Instalar Angular-cli vía "npm" en una terminal. Instalar con el siguiente coma
 ```
 npm install -g @angular/cli
 ```
-_Ir al directorio /bapp/Scripts y realizar la insercción de los datos de ejemplo en la base de datos "sample_airbnb" mediante la terminal o bien mediante un cliente como dbkoda o Robo 3T_ 
+_Ir al directorio /bapp/Scripts y realizar la insercción de los datos de ejemplo en la base de datos "sample_airbnb" mediante la terminal o bien mediante un cliente como dbkoda o Robo 3T. Puede hacer mediante un insertMany con todos los datos._ 
+
+```
+db.collection.insertMany([
+    {object1},
+    {object2},
+])
+```
 ### Instalación 🔧
 _Para hacer funcionar el proyecto tenemos que ir a la ruta /bapp/server y ejecutar el siguinte comando_
 ```
