@@ -4,6 +4,8 @@ const listingsController = require('../controllers/Listings.controller');
 
   
     router.get('/', listingsController.getListenings);
+    router.get('/ptype', listingsController.getProperty_type);
+    router.get('/price', listingsController.getByPrice);
     router.post('/', listingsController.createListening);
     router.get('/:id', listingsController.getListening);
     router.put('/:id', listingsController.editListening);
