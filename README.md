@@ -101,3 +101,13 @@ _Una vez ahí dentro ejecutamos el siguiente comando._
 node backup.js 
 ```
 _El comando te creará un respaldo de todas las colecciones en el directorio root de tu pc / y ahí se encontrará en una carpeta llamada backup._
+
+
+## Autores ✒️
+
+_Todos los derechos reservados a los respectivos autores_
+
+_Dudas o preguntas sobre el proyecto contactar a mizraimeliab168@gmail.com_
+
+* **Mizraim Eliab** - *General Develop* - [mizraim168]
+* **Rafael Adrián** - *DB* - [Adrian12317]
