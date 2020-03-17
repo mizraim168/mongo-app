@@ -19,7 +19,7 @@ db.collection.insertMany([
     {object2},
 ])
 ```
-_Estos datos són unicamente con fines de ejemplo (usted puede agregar o eliminar más información de la colleción customers desde la interfaz gráfica)._
+_Estos datos són unicamente con fines de ejemplo (usted puede agregar o eliminar más información de la colección customers desde la interfaz gráfica)._
 ### Instalación 🔧
 _Para hacer funcionar el proyecto tenemos que ir a la ruta /bapp/server y ejecutar el siguinte comando_
 ```
