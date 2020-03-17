@@ -19,6 +19,7 @@ db.collection.insertMany([
     {object2},
 ])
 ```
+_Estos datos són unicamente con fines de ejemplo (usted puede agregar o eliminar más información de la colleción customers desde la interfaz gráfica)._
 ### Instalación 🔧
 _Para hacer funcionar el proyecto tenemos que ir a la ruta /bapp/server y ejecutar el siguinte comando_
 ```
@@ -41,3 +42,16 @@ npm run dev
 ```
 _El comando anterior va a ejecutar el servidor y eso va a permitir hacer las consultas mediante los métodos del protocolo HTTP._
 
+_Automáticamente el software se conecta a sample_airbnb y cuando se agrega un customer desde la inetrfaz se crea la colleción de "customers" (también puede agregarse manualmente desde un cliente de mongo)._
+
+_Pra acceder a la interfaz gráfica tenemos que ir al directorio /bapp/client y ahí ejecutar el siguiente comando._
+```
+ng serve
+```
+_OJO: no cerrar el terminal dónde se ejecuto "npm run dev" ya que uno es el servido del REST API y el otro es el servidor de Angular._
+
+_Para vizualizar los datos de customers del servidor del REST API vamos a la siguiente dirección desde nuestro navegador:_
+
+```
+http://localhost:3000/customers
+```
